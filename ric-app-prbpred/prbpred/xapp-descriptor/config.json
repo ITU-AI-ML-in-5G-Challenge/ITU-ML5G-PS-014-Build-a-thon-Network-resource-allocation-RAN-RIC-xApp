@@ -1,0 +1,57 @@
+{
+        "xapp_name": "prbpredxapp",
+        "version": "0.0.2",
+        "containers": [
+            {
+                "name": "prbpredxapp",
+                "image": {
+                    "registry": "nexus3.o-ran-sc.org:10002",
+                    "name": "o-ran-sc/ric-app-prbpred",
+                    "tag": "0.0.2"
+                }
+            }
+        ],
+        "messaging": {
+            "ports": [
+                 {
+                "name": "http",
+                "container": "prbpredxapp",
+                "port": 10003,
+                "description": "http service"
+                },
+                {
+                    "name": "rmr-data",
+                    "container": "prbpredxapp",
+                    "port": 4560,
+                    "rxMessages": [
+                        "A1_POLICY_REQ",
+                        "PRB_PRED_REQ"
+                    ],
+                    "txMessages": [ "A1_POLICY_RESP", "PRB_PRED_RSP","A1_POLICY_QUERY" ],
+                    "policies": [20008],
+                    "description": "rmr receive data port "
+                },
+                {
+                    "name": "rmr-route",
+                    "container": "prbpredxapp",
+                    "port": 4561,
+                    "description": "rmr route port "
+                }
+            ]
+        },
+        "rmr": {
+            "protPort": "tcp:4560",
+            "maxSize": 2072,
+            "numWorkers": 1,
+            "txMessages": [
+                "PRB_PRED_RSP",
+                "A1_POLICY_RESP",
+                "A1_POLICY_QUERY"
+            ],
+            "rxMessages": [
+                "PRB_PRED_REQ",
+                "A1_POLICY_REQ"
+            ],
+            "policies": [20008]
+        }
+    }

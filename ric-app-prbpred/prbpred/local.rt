@@ -1,0 +1,8 @@
+# bootstrap route table
+
+newrt | start
+mse | 20011 | -1 | service-ricplt-a1mediator-rmr.ricplt:4562
+mse | 30004 | -1 | service-ricxapp-alloc-rmr:4560
+mse | 20012 | -1 | service-ricplt-a1mediator-rmr.ricplt:4562
+
+newrt | end

@@ -1,0 +1,53 @@
+{
+        "xapp_name": "alloc",
+        "version": "0.0.2",
+        "containers": [
+            {
+                "name": "alloc",
+                "image": {
+                    "registry": "nexus3.o-ran-sc.org:10002",
+                    "name": "o-ran-sc/ric-app-alloc",
+                    "tag": "0.0.2"
+                }
+            }
+        ],
+        "messaging": {
+            "ports": [
+                 {
+                "name": "http",
+                "container": "alloc",
+                "port": 10005,
+                "description": "http service"
+                },
+                {
+                    "name": "rmr-data",
+                    "container": "alloc",
+                    "port": 4560,
+                    "txMessages": ["PRB_PRED_REQ","RIC_HEALTH_CHECK_RESP"],
+                    "rxMessages": ["PRB_PRED_RSP", "SUBSCRIPTION_REQ","RIC_HEALTH_CHECK_REQ"],
+                    "policies": [],
+                    "description": "rmr receive data port for alloc"
+                },
+                {
+                    "name": "rmr-route",
+                    "container": "alloc",
+                    "port": 4561,
+                    "description": "rmr route port for alloc"
+                }
+            ]
+        },
+        "rmr": {
+            "protPort": "tcp:4560",
+            "maxSize": 2072,
+            "numWorkers": 1,
+            "rxMessages": ["PRB_PRED_RESP"],
+            "txMessages": ["PRB_PRED_REQ"],
+            "policies": []
+        },
+        "controls": {
+            "fileStrorage": false
+         },
+        "db" : {
+            "waitForSdl": false
+        }
+}

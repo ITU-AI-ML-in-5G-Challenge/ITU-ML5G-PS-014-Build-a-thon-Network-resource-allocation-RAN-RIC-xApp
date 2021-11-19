@@ -1,0 +1,17 @@
+openapi: 3.0.0
+info:
+  version: 2.1.0
+  title: RIC PRBPredict
+paths:
+  '/prb-pred/healthcheck':
+    get:
+      description: >
+        Perform a healthcheck on PRBPredict
+      tags:
+        - PRBPredict Xapp
+      operationId: prbpred.api.get_healthcheck
+      responses:
+        200:
+          description: >
+            A1 is healthy.
+            Anything other than a 200 should be considered a1 as failing
