@@ -4,7 +4,7 @@ Team : RAN-RIC-xApp
 
 
 
-The pre-trained model, model specific and PRB allocation implementation for PRB developed by Team “AUTOMATO” as part of this build-a-thon is re-used in developing the below xApp. Please refer References [5] & [6] for details on report from Team “AUTOMATO”.
+The pre-trained model, model specific implementation developed by Team “AUTOMATO” as part of this build-a-thon is re-used in developing the below xApp. Please refer References [5] & [6] for details on report from Team “AUTOMATO”.
 
 *Instructions 
 1) Bring up RIC platform with Dawn release 
